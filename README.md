@@ -3,6 +3,8 @@
 This application allows users to create a basic Babylon.js project with a cube mesh object in the scene and implement extrusion feature with cursor movement.
 ![Cube Extrusion](assets/cube_screenshot.png)
 
+- Demo Video: [Cube Extrusion](assets\BabylonMeshExtrusion_Demo.mp4)
+
 ## Getting Started
 
 Follow the instructions below to set up the project environment and run the application.

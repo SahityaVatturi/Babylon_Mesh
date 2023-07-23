@@ -65,11 +65,11 @@ const createScene = function () {
   // Set moveAttached to false to restrict the cube from altering its base position
   globals.dragBehavior.moveAttached = false;
   globals.baseCube.addBehavior(globals.dragBehavior);
+  var indices = globals.baseCube.getIndices();
 
   // Highlight the selected face
-  var isClicked = false;
   scene.onPointerDown = function (event, pickResult) {
-    isClicked = selectFace(scene, indices, pickResult, canvas);
+    selectFace(scene, indices, pickResult, canvas);
   };
 
   // Extrusion function that resizes the cube
@@ -84,11 +84,15 @@ const createScene = function () {
 
   return scene;
 };
-
+// Create the Babylon.js scene
 const scene = createScene();
+
+// Run the rendering loop to continuously render the scene
 engine.runRenderLoop(function () {
   scene.render();
 });
+
+// Resize the canvas when the window is resized
 window.addEventListener("resize", function () {
   engine.resize();
 });

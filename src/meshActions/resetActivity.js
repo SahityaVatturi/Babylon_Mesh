@@ -2,11 +2,12 @@ import { baseCubeBuilder } from "../cubeBuilder";
 import { globals } from "../utils/globals";
 
 /**
- * resetCube function resets Base Cube, camera and cube colors to its initial value
- * @param {*} event
- * @param {*} camera
- * @param {*} scene
- * @returns camera after resetting to its initial position
+ * Resets the Base Cube, camera, and cube colors to their initial values.
+ *
+ * @param {Event} event - The event that triggers the reset action.
+ * @param {BABYLON.ArcRotateCamera} camera - The camera to be reset to its initial position.
+ * @param {BABYLON.Scene} scene - The Babylon.js scene in which the cube and camera exist.
+ * @returns camera after being reset to its initial position.
  */
 export const resetCube = (event, camera, scene) => {
   // Dispose the Base Cube when user hits the reset button
@@ -21,7 +22,6 @@ export const resetCube = (event, camera, scene) => {
   var positions = globals.baseCube.getVerticesData(
     BABYLON.VertexBuffer.PositionKind
   );
-  // var indices = globals.baseCube.getIndices();
   // Set the colors to its initial values
   var vertices = positions.length / 3;
   globals.colorscolors = [];
@@ -33,6 +33,5 @@ export const resetCube = (event, camera, scene) => {
     globals.colors
   );
   globals.baseCube.addBehavior(globals.dragBehavior);
-  // globals.colors = colors;
   return camera;
 };

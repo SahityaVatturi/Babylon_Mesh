@@ -2,8 +2,9 @@ import { tempCubeBuilder } from "../cubeBuilder";
 import { globals } from "../utils/globals";
 
 /**
+ * Applies extrusion to the selected face of the cube.
  *
- * @param {*} scene
+ * @param {BABYLON.Scene} scene - The Babylon.js scene in which the cube exists.
  */
 export function applyExtrusion(scene) {
   let tempCube;
@@ -152,5 +153,6 @@ export function applyExtrusion(scene) {
         globals.tempPositions
       );
     }
+    globals.baseCube.enableEdgesRendering();
   });
 }

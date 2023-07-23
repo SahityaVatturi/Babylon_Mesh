@@ -3,12 +3,12 @@ import { CUBE_NAME } from "../utils/constants";
 import { globals } from "../utils/globals";
 
 /**
+ * Selects a face on the cube and changes the cursor style during selection.
  *
- * @param {*} scene
- * @param {*} indices
- * @param {*} pickResult
- * @param {*} canvas
- * @returns
+ * @param {BABYLON.Scene} scene - The Babylon.js scene in which the cube exists.
+ * @param {number[]} indices - The indices of the face that is selected.
+ * @param {BABYLON.PickingInfo} pickResult - The result of the picking operation for the selected face.
+ * @param {HTMLCanvasElement} canvas - The HTML canvas element where the scene is rendered.
  */
 export function selectFace(scene, indices, pickResult, canvas) {
   if (pickResult.hit && pickResult.pickedMesh.name === CUBE_NAME) {
@@ -42,5 +42,4 @@ export function selectFace(scene, indices, pickResult, canvas) {
     globals.face = face;
     globals.faceNormal = normal;
   }
-  return true;
 }

@@ -36,8 +36,7 @@ export function applyExtrusion(scene) {
 
   // onDragObservable handle events that occur during the drag behavior
   globals.dragBehavior.onDragObservable.add((event) => {
-    // Calculate the extrude vector based on the drag delta and the clicked face normal
-    const delta = event.delta;
+    // Set the axis based on selected face normal
     let axis;
     if (globals.faceNormal.x === 1 || globals.faceNormal.x === -1) {
       axis = new BABYLON.Vector3(1, 0, 0);
@@ -46,6 +45,8 @@ export function applyExtrusion(scene) {
     } else if (globals.faceNormal.z === 1 || globals.faceNormal.z === -1) {
       axis = new BABYLON.Vector3(0, 0, 1);
     }
+    // Calculate the extrude vector
+    const delta = event.delta;
     const sign = Math.sign(delta.x + delta.y + delta.z);
     const extrudeVector = axis.scale(sign * delta.length());
 
@@ -54,7 +55,7 @@ export function applyExtrusion(scene) {
     );
     var indices = globals.baseCube.getIndices();
 
-    // Update the positions of the base cube vertices based on the extrude vector
+    // Set the positions of the base cube with extrude vector
     let newPositions = positions.slice();
     for (let i = 0; i < 6; i++) {
       const newIndex = indices[3 * globals.face * 2 + i];
@@ -99,7 +100,7 @@ export function applyExtrusion(scene) {
       }
     }
 
-    // Update the positions of the temporary cube vertices based on the shared vertices and the extrude vector
+    // Set the positions of temporary cube based on the shared vertices and the extrude vector
     globals.tempPositions = positions.slice();
     for (let i = 0; i < globals.currentPositions.length; i++) {
       const currentOldVertex = globals.currentPositions[i];

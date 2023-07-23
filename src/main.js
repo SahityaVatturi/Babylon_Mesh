@@ -2,8 +2,8 @@ import * as BABYLON from "babylonjs";
 
 import { baseCubeBuilder } from "./cubeBuilder";
 import { CAMERA_NAME, LIGHT_NAME } from "./utils/constants";
-import { resetCube } from "./meshActions/resetActivity";
-import { selectFace } from "./meshActions/firstClickActivity";
+import { resetCube } from "./meshActions/resetAction";
+import { selectFace } from "./meshActions/selectAction";
 import { globals } from "./utils/globals";
 import { applyExtrusion } from "./meshActions/extudeAction";
 

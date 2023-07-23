@@ -1,5 +1,4 @@
 import { CUBE_NAME, MATERIAL_NAME } from "./utils/constants";
-import { globals } from "./utils/globals";
 
 /**
  * baseCubeBuilder function responsible for creating new cube Mesh
@@ -7,10 +6,10 @@ import { globals } from "./utils/globals";
  * @returns Base Cube
  */
 export function baseCubeBuilder(scene) {
-  globals.baseCube = BABYLON.Mesh.CreateBox(CUBE_NAME, 1.0, scene);
-  globals.baseCube.enableEdgesRendering();
-  globals.baseCube.edgesColor = new BABYLON.Color4(0, 0, 0, 0.5);
-  return globals.baseCube;
+  var baseCube = BABYLON.Mesh.CreateBox(CUBE_NAME, 1.0, scene);
+  baseCube.enableEdgesRendering();
+  baseCube.edgesColor = new BABYLON.Color4(0, 0, 0, 0.5);
+  return baseCube;
 }
 
 /**
